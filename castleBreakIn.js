@@ -64,16 +64,22 @@ let ann = new Princess;
 class Ball extends Sprite{
     constructor (){
         super();
+        this.x = game.displayWidth/2;
+        this.y = game.displayHeight/2;
         this.height = 48;
         this.width = 48;
-        this.x = this.width / 2;
-        this.y = this.height / 2;
         this.name = "Ball";
         this.setImage("ball.png");
         this.defineAnimation("spin", 0, 12);
+        this.playAnimation("spin", true);
         this.speed = 1;
         this.angle = 50 + Math.random() * 80;
     }
+    
+    handleGameLoop(){
+        if (this.speed < 200)
+            this.speed += 2;
+    }
 }
 
-let ball = new Ball;
+let ball = new Ball();
