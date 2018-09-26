@@ -21,7 +21,7 @@ let rightWall = new Wall(game.displayWidth - 48, 200, "Right side Wall", "wall.p
 
 //Creates Princess Class
 class Princess extends Sprite {
-    
+
     constructor() {
         super();
         this.name = "Princess Ann";
@@ -101,7 +101,7 @@ let ann = new Princess;
 
 //Creates Ball
 class Ball extends Sprite {
-    
+
     constructor() {
         super();
         this.x = game.displayWidth / 2;
@@ -128,3 +128,18 @@ class Ball extends Sprite {
 }
 
 let ball = new Ball();
+
+// Creates Blocks
+class Block extends Sprite {
+
+    constructor(x, y) {
+        super();
+        this.x = x;
+        this.y = y;
+        this.name = "Block";
+        this.setImage("block1");
+        this.accelerateOnBounce = false;
+    }
+}
+
+let block = new Block;
