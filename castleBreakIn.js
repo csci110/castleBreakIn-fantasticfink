@@ -132,7 +132,7 @@ class Ball extends Sprite {
         game.removeSprite(this);
         //ann.loseALife();
         Ball.ballsInPlay = Ball.ballsInPlay - 1;
-        if (Ball.ballsInPlay == 0){
+        if (Ball.ballsInPlay == 0) {
             ann.loseALife();
         }
     }
@@ -189,8 +189,8 @@ class ExtraBallBlock extends Block {
         super(x, y);
         this.setImage("block3.png");
     }
-    
-    handleCollision(){
+
+    handleCollision() {
         super.handleCollision();
         new Ball();
         return true;
