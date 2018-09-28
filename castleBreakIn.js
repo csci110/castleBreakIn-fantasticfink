@@ -96,6 +96,11 @@ class Princess extends Sprite {
                 '\n...for now!\nBetter luck next time.');
         }
     }
+
+    addALife() {
+        this.lives = this.lives + 1;
+        this.updateLivesDisplay();
+    }
 }
 
 let ann = new Princess;
@@ -115,6 +120,7 @@ class Ball extends Sprite {
         this.playAnimation("spin", true);
         this.speed = 1;
         this.angle = 50 + Math.random() * 80;
+        Ball.ballsInPlay = Ball.ballsInPlay + 1;
     }
 
     handleGameLoop() {
@@ -124,9 +130,15 @@ class Ball extends Sprite {
 
     handleBoundaryContact() {
         game.removeSprite(this);
-        ann.loseALife();
+        //ann.loseALife();
+        Ball.ballsInPlay = Ball.ballsInPlay - 1;
+        if (Ball.ballsInPlay == 0){
+            ann.loseALife();
+        }
     }
 }
+
+Ball.ballsInPlay = 0;
 
 let ball = new Ball();
 
@@ -156,11 +168,34 @@ class Block extends Sprite {
 
 Block.blocksToDestroy = 0;
 
-class ExtraLifeBlock extends Block {}
+class ExtraLifeBlock extends Block {
+    constructor(x, y) {
+        super(x, y);
+        this.setImage("block2.png");
+        Block.blocksToDestroy = Block.blocksToDestroy - 1;
+    }
+
+    handleCollision() {
+        ann.addALife();
+        return true;
+    }
+
+}
 
 new ExtraLifeBlock(200, 250);
 
-class ExtraBallBlock extends Block {}
+class ExtraBallBlock extends Block {
+    constructor(x, y) {
+        super(x, y);
+        this.setImage("block3.png");
+    }
+    
+    handleCollision(){
+        super.handleCollision();
+        new Ball();
+        return true;
+    }
+}
 
 new ExtraBallBlock(300, 250);
 
