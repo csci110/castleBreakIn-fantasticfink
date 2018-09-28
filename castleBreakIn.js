@@ -156,23 +156,13 @@ class Block extends Sprite {
 
 Block.blocksToDestroy = 0;
 
-class ExtraLifeBlock extends Block {
+class ExtraLifeBlock extends Block {}
 
-    constructor(x, y) {
-        super();
-        this.x = 200;
-        this.y = 250;
-    }
-}
+new ExtraLifeBlock(200, 250);
 
-class ExtraBallBlock extends Block {
+class ExtraBallBlock extends Block {}
 
-    constructor(x, y) {
-        super();
-        this.x = 300;
-        this.y = 250;
-    }
-}
+new ExtraBallBlock(300, 250);
 
 for (let i = 0; i < 5; i = i + 1) {
     new Block(200 + i * 48, 200);
