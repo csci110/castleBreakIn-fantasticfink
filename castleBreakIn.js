@@ -92,8 +92,8 @@ class Princess extends Sprite {
             new Ball;
         }
         else {
-            game.end('The mysterious stranger\nhas escaped Princess Ann' 
-            + '\n...for now!\nBetter luck next time.');
+            game.end('The mysterious stranger\nhas escaped Princess Ann' +
+                '\n...for now!\nBetter luck next time.');
         }
     }
 }
@@ -142,19 +142,37 @@ class Block extends Sprite {
         this.accelerateOnBounce = false;
         Block.blocksToDestroy = Block.blocksToDestroy + 1;
     }
-    
-    handleCollision(){
+
+    handleCollision() {
         game.removeSprite(this);
         Block.blocksToDestroy = Block.blocksToDestroy - 1;
-        if (Block.blocksToDestroy <= 0){
-            game.end('Congratulations!\n\nPrincess Ann can continue'
-            + 'her pursuit\nof the mysterious stranger!');
-        this.true;
+        if (Block.blocksToDestroy <= 0) {
+            game.end('Congratulations!\n\nPrincess Ann can continue ' +
+                'her pursuit\nof the mysterious stranger!');
+            this.true;
         }
     }
 }
 
 Block.blocksToDestroy = 0;
+
+class ExtraLifeBlock extends Block {
+
+    constructor(x, y) {
+        super();
+        this.x = 200;
+        this.y = 250;
+    }
+}
+
+class ExtraBallBlock extends Block {
+
+    constructor(x, y) {
+        super();
+        this.x = 300;
+        this.y = 250;
+    }
+}
 
 for (let i = 0; i < 5; i = i + 1) {
     new Block(200 + i * 48, 200);
