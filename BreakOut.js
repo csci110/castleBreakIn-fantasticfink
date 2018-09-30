@@ -25,7 +25,7 @@ class Princess extends Sprite {
     constructor() {
         super();
         this.name = "Rob";
-        this.setImage("ann.png");
+        this.setImage("rfsprite.png");
         this.height = 48;
         this.width = 48;
         this.x = game.displayWidth / 2;
