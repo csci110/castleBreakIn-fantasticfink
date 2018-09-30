@@ -199,6 +199,14 @@ class ExtraBallBlock extends Block {
 
 new ExtraBallBlock(300, 250);
 
-for (let i = 0; i < 5; i = i + 1) {
-    new Block(200 + i * 48, 200);
+for (let i = 0; i < 15; i = i + 1) {
+    new Block(65 + i * 48, 200);
+}
+
+for (let i = 0; i < 15; i = i + 1) {
+    new Block(65 + i * 48, 300);
+}
+
+for (let i = 0; i < 15; i = i + 1) {
+    new Block(65 + i * 48, 400);
 }
