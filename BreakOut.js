@@ -24,8 +24,8 @@ class Princess extends Sprite {
 
     constructor() {
         super();
-        this.name = "Rob";
-        this.setImage("rfsprite.png");
+        this.name = "Princess Ann";
+        this.setImage("ann.png");
         this.height = 48;
         this.width = 48;
         this.x = game.displayWidth / 2;
@@ -199,6 +199,40 @@ class ExtraBallBlock extends Block {
 
 new ExtraBallBlock(600, 250);
 
+class LoseLifeBlock extends Block {
+    constructor(x, y) {
+        super(x, y);
+        this.setImage("block4.png");
+        Block.blocksToDestroy = Block.blocksToDestroy - 1;
+    }
+
+    handleCollision() {
+        ann.loseALife();
+        return true;
+    }
+
+}
+
+new LoseLifeBlock(600, 350);
+
+class QuadBallBlock extends Block {
+    constructor(x, y) {
+        super(x, y);
+        this.setImage("block5.png");
+    }
+
+    handleCollision() {
+        super.handleCollision();
+        new Ball();
+        new Ball();
+        new Ball();
+        new Ball();
+        return true;
+    }
+}
+
+new QuadBallBlock(200, 350);
+
 for (let i = 0; i < 15; i = i + 1) {
     new Block(65 + i * 48, 200);
 }
@@ -210,5 +244,3 @@ for (let i = 0; i < 15; i = i + 1) {
 for (let i = 0; i < 15; i = i + 1) {
     new Block(95 + i * 48, 400);
 }
-
-
