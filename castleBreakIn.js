@@ -211,7 +211,4 @@ for (let i = 0; i < 15; i = i + 1) {
     new Block(95 + i * 48, 400);
 }
 
-//for (let i = 0; i < 3; i = i + 1) {
-//    new Block(160 + i * 48, 400);
-//}
 
