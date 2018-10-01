@@ -210,7 +210,6 @@ class LoseLifeBlock extends Block {
         ann.loseALife();
         return true;
     }
-
 }
 
 new LoseLifeBlock(600, 350);
